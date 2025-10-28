@@ -1,0 +1,36 @@
+﻿<Window x:Class="KursApp.salesList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KursApp"
+        mc:Ignorable="d"
+        Title="salesList" Height="450" Width="800">
+    <Grid>
+        <Button Content="Back" FontSize="14" HorizontalAlignment="Left" Margin="713,32,0,0" VerticalAlignment="Top" Height="23" Width="53" Click="Button_Click"/>
+        <DataGrid x:Name="TypeGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False" Margin="0,199,0,33">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type}" />
+                <DataGridTextColumn Header="Назва" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Вартість" Binding="{Binding Cost}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="70,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="159">
+            <Run Text="Сортування за "/><Run Language="uk-ua" Text="назвою"/>
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,44,0,0">
+            <TextBox x:Name="SearchBoxName" Width="170" Margin="0,0,10,0" TextChanged="SearchBoxClient_TextChanged" />
+            <Button Content="Пошук" Width="75" Click="SearchBoxClient_Click"/>
+        </StackPanel>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="385,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="159">
+            <Run Text="Сортування за "/><Run Language="uk-ua" Text="типом"/>
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,44,0,0">
+            <TextBox x:Name="SearchBoxType" Width="170" Margin="0,0,10,0" TextChanged="SearchBoxType_TextChanged" />
+            <Button Content="Пошук" Width="75" Click="SearchBoxType_Click"/>
+        </StackPanel>
+        <Button Content="Очистити фільтри" HorizontalAlignment="Left" Margin="70,95,0,0" VerticalAlignment="Top" Width="114" Click="Clear_filters"/>
+    </Grid>
+</Window>
